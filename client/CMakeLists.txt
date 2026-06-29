@@ -39,12 +39,14 @@ if(WIN32 OR (APPLE AND NOT IOS) OR (LINUX AND NOT ANDROID))
 endif()
 
 find_package(Qt6 REQUIRED COMPONENTS ${PACKAGES})
+find_package(Protobuf REQUIRED)
 
 set(LIBS ${LIBS}
     Qt6::Core Qt6::Gui
     Qt6::Network Qt6::Xml Qt6::RemoteObjects
     Qt6::Quick Qt6::Svg Qt6::QuickControls2
     Qt6::Core5Compat Qt6::Concurrent
+    protobuf::libprotobuf
 )
 
 if(WIN32 OR (APPLE AND NOT IOS) OR (LINUX AND NOT ANDROID))
@@ -55,6 +57,7 @@ qt_standard_project_setup()
 qt_add_executable(${PROJECT} MANUAL_FINALIZATION)
 target_include_directories(${PROJECT} PUBLIC
     $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}>
+    $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}/core/utils/proto/routercommon>
 )
 
 if(WIN32 OR (APPLE AND NOT IOS AND NOT MACOS_NE) OR (LINUX AND NOT ANDROID))

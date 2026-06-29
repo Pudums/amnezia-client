@@ -3444,6 +3444,46 @@ And if you don&apos;t like the app, all the more support it - the donation will 
         <source>Add imported sites to existing ones</source>
         <translation>将导入的网址添加到现有网址中</translation>
     </message>
+    <message>
+        <location filename="../ui/qml/Pages2/PageSettingsSplitTunneling.qml" line="516"/>
+        <source>Import file type</source>
+        <translation>导入文件类型</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/Pages2/PageSettingsSplitTunneling.qml" line="551"/>
+        <source>Import JSON site list</source>
+        <translation>导入 JSON 站点列表</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/Pages2/PageSettingsSplitTunneling.qml" line="564"/>
+        <source>Import GeoIP (.dat)</source>
+        <translation>导入 GeoIP (.dat)</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/Pages2/PageSettingsSplitTunneling.qml" line="566"/>
+        <source>Open GeoIP file</source>
+        <translation>打开 GeoIP 文件</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/Pages2/PageSettingsSplitTunneling.qml" line="567"/>
+        <source>GeoIP files (*.dat)</source>
+        <translation>GeoIP 文件 (*.dat)</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/Pages2/PageSettingsSplitTunneling.qml" line="593"/>
+        <source>GeoIP codes</source>
+        <translation>GeoIP 代码</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/Pages2/PageSettingsSplitTunneling.qml" line="594"/>
+        <source>Use comma or space between codes</source>
+        <translation>使用逗号或空格分隔代码</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/Pages2/PageSettingsSplitTunneling.qml" line="595"/>
+        <source>RU, CN, PRIVATE</source>
+        <translation>RU, CN, PRIVATE</translation>
+    </message>
 </context>
 <context>
     <name>PageSetupWizardApiServiceInfo</name>
@@ -5933,6 +5973,67 @@ While it offers a blend of security, stability, and speed, it&apos;s essential t
         <location filename="../ui/qml/main2.qml" line="246"/>
         <source>Save</source>
         <translation>保存</translation>
+    </message>
+</context>
+<context>
+    <name>IpSplitTunnelingUiController</name>
+    <message>
+        <location filename="../ui/controllers/ipSplitTunnelingUiController.cpp" line="75"/>
+        <source>GeoIP import completed: %1 routes added</source>
+        <translation>GeoIP 导入完成：已添加 %1 条路由</translation>
+    </message>
+</context>
+<context>
+    <name>GeoIpDatParser</name>
+    <message>
+        <location filename="../core/utils/geoIpDatParser.cpp" line="31"/>
+        <source>Invalid GeoIP data: zero protobuf tag</source>
+        <translation>GeoIP 数据无效：protobuf 标签为零</translation>
+    </message>
+    <message>
+        <location filename="../core/utils/geoIpDatParser.cpp" line="47"/>
+        <source>Invalid GeoIP data: truncated varint</source>
+        <translation>GeoIP 数据无效：varint 被截断</translation>
+    </message>
+    <message>
+        <location filename="../core/utils/geoIpDatParser.cpp" line="59"/>
+        <source>Invalid GeoIP data: varint is too long</source>
+        <translation>GeoIP 数据无效：varint 过长</translation>
+    </message>
+    <message>
+        <location filename="../core/utils/geoIpDatParser.cpp" line="70"/>
+        <source>Invalid GeoIP data: truncated length-delimited field</source>
+        <translation>GeoIP 数据无效：长度分隔字段被截断</translation>
+    </message>
+    <message>
+        <location filename="../core/utils/geoIpDatParser.cpp" line="95"/>
+        <source>Invalid GeoIP data: unsupported protobuf wire type %1</source>
+        <translation>GeoIP 数据无效：不支持的 protobuf wire 类型 %1</translation>
+    </message>
+    <message>
+        <location filename="../core/utils/geoIpDatParser.cpp" line="104"/>
+        <source>Invalid GeoIP data: truncated fixed-width field</source>
+        <translation>GeoIP 数据无效：固定宽度字段被截断</translation>
+    </message>
+    <message>
+        <location filename="../core/utils/geoIpDatParser.cpp" line="246"/>
+        <source>GeoIP code list is empty</source>
+        <translation>GeoIP 代码列表为空</translation>
+    </message>
+    <message>
+        <location filename="../core/utils/geoIpDatParser.cpp" line="281"/>
+        <source>GeoIP code not found: %1</source>
+        <translation>未找到 GeoIP 代码：%1</translation>
+    </message>
+    <message>
+        <location filename="../core/utils/geoIpDatParser.cpp" line="291"/>
+        <source>GeoIP import contains no IPv4 CIDR ranges</source>
+        <translation>GeoIP 导入不包含 IPv4 CIDR 范围</translation>
+    </message>
+    <message>
+        <location filename="../core/utils/geoIpDatParser.cpp" line="48"/>
+        <source>Invalid GeoIP data</source>
+        <translation>GeoIP 数据无效</translation>
     </message>
 </context>
 </TS>

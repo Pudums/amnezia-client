@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package v2ray.core.app.router.routercommon;
+
+message CIDR {
+  bytes ip = 1;
+  uint32 prefix = 2;
+  bool reverse_match = 3;
+}
+
+message GeoIP {
+  string country_code = 1;
+  repeated CIDR cidr = 2;
+  bool reverse_match = 3;
+}
+
+message GeoIPList {
+  repeated GeoIP entry = 1;
+}

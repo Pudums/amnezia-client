@@ -2998,6 +2998,46 @@ Already installed containers were found on the server. All installed containers 
         <source>Add imported sites to existing ones</source>
         <translation>Додати імпортовані сайти до існуючих</translation>
     </message>
+    <message>
+        <location filename="../ui/qml/Pages2/PageSettingsSplitTunneling.qml" line="516"/>
+        <source>Import file type</source>
+        <translation>Тип файлу імпорту</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/Pages2/PageSettingsSplitTunneling.qml" line="551"/>
+        <source>Import JSON site list</source>
+        <translation>Імпортувати список сайтів JSON</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/Pages2/PageSettingsSplitTunneling.qml" line="564"/>
+        <source>Import GeoIP (.dat)</source>
+        <translation>Імпортувати GeoIP (.dat)</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/Pages2/PageSettingsSplitTunneling.qml" line="566"/>
+        <source>Open GeoIP file</source>
+        <translation>Відкрити файл GeoIP</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/Pages2/PageSettingsSplitTunneling.qml" line="567"/>
+        <source>GeoIP files (*.dat)</source>
+        <translation>Файли GeoIP (*.dat)</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/Pages2/PageSettingsSplitTunneling.qml" line="593"/>
+        <source>GeoIP codes</source>
+        <translation>Коди GeoIP</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/Pages2/PageSettingsSplitTunneling.qml" line="594"/>
+        <source>Use comma or space between codes</source>
+        <translation>Розділяйте коди комою або пробілом</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/Pages2/PageSettingsSplitTunneling.qml" line="595"/>
+        <source>RU, CN, PRIVATE</source>
+        <translation>RU, CN, PRIVATE</translation>
+    </message>
 </context>
 <context>
     <name>PageSetupWizardApiServiceInfo</name>
@@ -5309,6 +5349,67 @@ This means that AmneziaWG keeps the fast performance of the original while addin
         <location filename="../ui/qml/main2.qml" line="221"/>
         <source>Save</source>
         <translation>Зберегти</translation>
+    </message>
+</context>
+<context>
+    <name>IpSplitTunnelingUiController</name>
+    <message>
+        <location filename="../ui/controllers/ipSplitTunnelingUiController.cpp" line="75"/>
+        <source>GeoIP import completed: %1 routes added</source>
+        <translation>Імпорт GeoIP завершено: додано маршрутів: %1</translation>
+    </message>
+</context>
+<context>
+    <name>GeoIpDatParser</name>
+    <message>
+        <location filename="../core/utils/geoIpDatParser.cpp" line="31"/>
+        <source>Invalid GeoIP data: zero protobuf tag</source>
+        <translation>Некоректні дані GeoIP: нульовий тег protobuf</translation>
+    </message>
+    <message>
+        <location filename="../core/utils/geoIpDatParser.cpp" line="47"/>
+        <source>Invalid GeoIP data: truncated varint</source>
+        <translation>Некоректні дані GeoIP: усічений varint</translation>
+    </message>
+    <message>
+        <location filename="../core/utils/geoIpDatParser.cpp" line="59"/>
+        <source>Invalid GeoIP data: varint is too long</source>
+        <translation>Некоректні дані GeoIP: varint занадто довгий</translation>
+    </message>
+    <message>
+        <location filename="../core/utils/geoIpDatParser.cpp" line="70"/>
+        <source>Invalid GeoIP data: truncated length-delimited field</source>
+        <translation>Некоректні дані GeoIP: усічене поле з довжиною</translation>
+    </message>
+    <message>
+        <location filename="../core/utils/geoIpDatParser.cpp" line="95"/>
+        <source>Invalid GeoIP data: unsupported protobuf wire type %1</source>
+        <translation>Некоректні дані GeoIP: непідтримуваний тип protobuf wire %1</translation>
+    </message>
+    <message>
+        <location filename="../core/utils/geoIpDatParser.cpp" line="104"/>
+        <source>Invalid GeoIP data: truncated fixed-width field</source>
+        <translation>Некоректні дані GeoIP: усічене поле фіксованої довжини</translation>
+    </message>
+    <message>
+        <location filename="../core/utils/geoIpDatParser.cpp" line="246"/>
+        <source>GeoIP code list is empty</source>
+        <translation>Список кодів GeoIP порожній</translation>
+    </message>
+    <message>
+        <location filename="../core/utils/geoIpDatParser.cpp" line="281"/>
+        <source>GeoIP code not found: %1</source>
+        <translation>Код GeoIP не знайдено: %1</translation>
+    </message>
+    <message>
+        <location filename="../core/utils/geoIpDatParser.cpp" line="291"/>
+        <source>GeoIP import contains no IPv4 CIDR ranges</source>
+        <translation>Імпорт GeoIP не містить діапазонів IPv4 CIDR</translation>
+    </message>
+    <message>
+        <location filename="../core/utils/geoIpDatParser.cpp" line="48"/>
+        <source>Invalid GeoIP data</source>
+        <translation>Некоректні дані GeoIP</translation>
     </message>
 </context>
 </TS>

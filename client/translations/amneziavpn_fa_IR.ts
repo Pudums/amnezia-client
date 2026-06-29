@@ -2840,6 +2840,46 @@ Already installed containers were found on the server. All installed containers 
         <source>Add imported sites to existing ones</source>
         <translation>اضافه کردن سایت‎های بارگذاری شده به سایت‎های موجود</translation>
     </message>
+    <message>
+        <location filename="../ui/qml/Pages2/PageSettingsSplitTunneling.qml" line="516"/>
+        <source>Import file type</source>
+        <translation>نوع فایل واردکردن</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/Pages2/PageSettingsSplitTunneling.qml" line="551"/>
+        <source>Import JSON site list</source>
+        <translation>وارد کردن فهرست سایت JSON</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/Pages2/PageSettingsSplitTunneling.qml" line="564"/>
+        <source>Import GeoIP (.dat)</source>
+        <translation>وارد کردن GeoIP (.dat)</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/Pages2/PageSettingsSplitTunneling.qml" line="566"/>
+        <source>Open GeoIP file</source>
+        <translation>باز کردن فایل GeoIP</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/Pages2/PageSettingsSplitTunneling.qml" line="567"/>
+        <source>GeoIP files (*.dat)</source>
+        <translation>فایل‌های GeoIP (*.dat)</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/Pages2/PageSettingsSplitTunneling.qml" line="593"/>
+        <source>GeoIP codes</source>
+        <translation>کدهای GeoIP</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/Pages2/PageSettingsSplitTunneling.qml" line="594"/>
+        <source>Use comma or space between codes</source>
+        <translation>کدها را با ویرگول یا فاصله جدا کنید</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/Pages2/PageSettingsSplitTunneling.qml" line="595"/>
+        <source>RU, CN, PRIVATE</source>
+        <translation>RU, CN, PRIVATE</translation>
+    </message>
 </context>
 <context>
     <name>PageSetupWizardApiServiceInfo</name>
@@ -5001,6 +5041,67 @@ For more detailed information, you can
         <location filename="../ui/qml/main2.qml" line="221"/>
         <source>Save</source>
         <translation>ذخیره</translation>
+    </message>
+</context>
+<context>
+    <name>IpSplitTunnelingUiController</name>
+    <message>
+        <location filename="../ui/controllers/ipSplitTunnelingUiController.cpp" line="75"/>
+        <source>GeoIP import completed: %1 routes added</source>
+        <translation>وارد کردن GeoIP کامل شد: %1 مسیر اضافه شد</translation>
+    </message>
+</context>
+<context>
+    <name>GeoIpDatParser</name>
+    <message>
+        <location filename="../core/utils/geoIpDatParser.cpp" line="31"/>
+        <source>Invalid GeoIP data: zero protobuf tag</source>
+        <translation>داده‌های GeoIP نامعتبر است: برچسب protobuf صفر است</translation>
+    </message>
+    <message>
+        <location filename="../core/utils/geoIpDatParser.cpp" line="47"/>
+        <source>Invalid GeoIP data: truncated varint</source>
+        <translation>داده‌های GeoIP نامعتبر است: varint ناقص است</translation>
+    </message>
+    <message>
+        <location filename="../core/utils/geoIpDatParser.cpp" line="59"/>
+        <source>Invalid GeoIP data: varint is too long</source>
+        <translation>داده‌های GeoIP نامعتبر است: varint بیش از حد طولانی است</translation>
+    </message>
+    <message>
+        <location filename="../core/utils/geoIpDatParser.cpp" line="70"/>
+        <source>Invalid GeoIP data: truncated length-delimited field</source>
+        <translation>داده‌های GeoIP نامعتبر است: فیلد length-delimited ناقص است</translation>
+    </message>
+    <message>
+        <location filename="../core/utils/geoIpDatParser.cpp" line="95"/>
+        <source>Invalid GeoIP data: unsupported protobuf wire type %1</source>
+        <translation>داده‌های GeoIP نامعتبر است: نوع wire protobuf پشتیبانی نمی‌شود %1</translation>
+    </message>
+    <message>
+        <location filename="../core/utils/geoIpDatParser.cpp" line="104"/>
+        <source>Invalid GeoIP data: truncated fixed-width field</source>
+        <translation>داده‌های GeoIP نامعتبر است: فیلد با عرض ثابت ناقص است</translation>
+    </message>
+    <message>
+        <location filename="../core/utils/geoIpDatParser.cpp" line="246"/>
+        <source>GeoIP code list is empty</source>
+        <translation>فهرست کدهای GeoIP خالی است</translation>
+    </message>
+    <message>
+        <location filename="../core/utils/geoIpDatParser.cpp" line="281"/>
+        <source>GeoIP code not found: %1</source>
+        <translation>کد GeoIP پیدا نشد: %1</translation>
+    </message>
+    <message>
+        <location filename="../core/utils/geoIpDatParser.cpp" line="291"/>
+        <source>GeoIP import contains no IPv4 CIDR ranges</source>
+        <translation>وارد کردن GeoIP شامل محدوده‌های IPv4 CIDR نیست</translation>
+    </message>
+    <message>
+        <location filename="../core/utils/geoIpDatParser.cpp" line="48"/>
+        <source>Invalid GeoIP data</source>
+        <translation>داده‌های GeoIP نامعتبر است</translation>
     </message>
 </context>
 </TS>

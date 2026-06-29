@@ -36,6 +36,8 @@ public:
     QVector<QPair<QString, QString>> getCurrentSites() const;
 
     bool importSitesFromJson(const QByteArray& jsonData, bool replaceExisting, QString &errorMessage);
+    bool importGeoIpDat(const QByteArray &geoIpData, const QStringList &codes, bool replaceExisting,
+                        QString &errorMessage, int &importedCount);
     QByteArray exportSitesToJson() const;
 
 private slots:
@@ -55,4 +57,3 @@ private:
 };
 
 #endif // IPSPLITTUNNELINGCONTROLLER_H
-

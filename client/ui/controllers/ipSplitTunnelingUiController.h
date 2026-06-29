@@ -22,6 +22,7 @@ public slots:
     void removeSite(int index);
     void removeSites();
     void importSites(const QString &fileName, bool replaceExisting);
+    void importGeoIpDat(const QString &fileName, const QString &codes, bool replaceExisting);
     void exportSites(const QString &fileName);
     void toggleSplitTunneling(bool enabled);
     void setRouteMode(int routeMode);

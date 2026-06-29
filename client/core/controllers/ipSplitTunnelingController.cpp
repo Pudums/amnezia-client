@@ -1,6 +1,8 @@
 #include "ipSplitTunnelingController.h"
+#include "core/utils/geoIpDatParser.h"
 #include "core/utils/networkUtilities.h"
 #include <QJsonObject>
+#include <QSet>
 
 IpSplitTunnelingController::IpSplitTunnelingController(SecureAppSettingsRepository* appSettingsRepository, QObject* parent)
     : QObject(parent),
@@ -227,6 +229,53 @@ bool IpSplitTunnelingController::importSitesFromJson(const QByteArray& jsonData,
     return true;
 }
 
+bool IpSplitTunnelingController::importGeoIpDat(const QByteArray &geoIpData, const QStringList &codes, bool replaceExisting,
+                                               QString &errorMessage, int &importedCount)
+{
+    importedCount = 0;
+
+    amnezia::geoip::ParseResult parseResult;
+    if (!amnezia::geoip::parseGeoIpDat(geoIpData, codes, parseResult, errorMessage)) {
+        return false;
+    }
+
+    QSet<QString> existingCidrs;
+    if (!replaceExisting) {
+        const QVariantMap existingSites = m_appSettingsRepository->vpnSites(m_currentRouteMode);
+        for (auto it = existingSites.constBegin(); it != existingSites.constEnd(); ++it) {
+            if (NetworkUtilities::checkIpSubnetFormat(it.key())) {
+                existingCidrs.insert(it.key());
+            }
+
+            const QString value = it.value().toString();
+            if (NetworkUtilities::checkIpSubnetFormat(value)) {
+                existingCidrs.insert(value);
+            }
+        }
+    }
+
+    QMap<QString, QString> sites;
+    for (auto it = parseResult.cidrsByCode.constBegin(); it != parseResult.cidrsByCode.constEnd(); ++it) {
+        const QString code = it.key();
+        for (const QString &cidr : it.value()) {
+            if (existingCidrs.contains(cidr)) {
+                continue;
+            }
+
+            existingCidrs.insert(cidr);
+            sites.insert(QStringLiteral("GeoIP:%1:%2").arg(code, cidr), cidr);
+        }
+    }
+
+    if (sites.isEmpty()) {
+        return true;
+    }
+
+    importedCount = sites.size();
+    addSites(sites, replaceExisting);
+    return true;
+}
+
 QByteArray IpSplitTunnelingController::exportSitesToJson() const
 {
     QVector<QPair<QString, QString>> sites = getCurrentSites();
@@ -242,4 +291,3 @@ QByteArray IpSplitTunnelingController::exportSitesToJson() const
     QJsonDocument jsonDocument(jsonArray);
     return jsonDocument.toJson();
 }
-

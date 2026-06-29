@@ -1,6 +1,7 @@
 #include "ipSplitTunnelingUiController.h"
 
 #include <QDebug>
+#include <QRegularExpression>
 
 #include "systemController.h"
 #include "core/utils/errorCodes.h"
@@ -49,6 +50,29 @@ void IpSplitTunnelingUiController::importSites(const QString &fileName, bool rep
     QString errorMessage;
     if (m_ipSplitTunnelingController->importSitesFromJson(jsonData, replaceExisting, errorMessage)) {
         emit finished(tr("Import completed"));
+    } else {
+        emit errorOccurred(errorMessage);
+    }
+}
+
+void IpSplitTunnelingUiController::importGeoIpDat(const QString &fileName, const QString &codes, bool replaceExisting)
+{
+    QByteArray geoIpData;
+    if (!SystemController::readFile(fileName, geoIpData)) {
+        emit errorOccurred(tr("Can't open file: %1").arg(fileName));
+        return;
+    }
+
+    QStringList codeList = codes.split(QRegularExpression(QStringLiteral("[,\\s;]+")), Qt::SkipEmptyParts);
+    for (QString &code : codeList) {
+        code = code.trimmed().toUpper();
+    }
+    codeList.removeDuplicates();
+
+    QString errorMessage;
+    int importedCount = 0;
+    if (m_ipSplitTunnelingController->importGeoIpDat(geoIpData, codeList, replaceExisting, errorMessage, importedCount)) {
+        emit finished(tr("GeoIP import completed: %1 routes added").arg(importedCount));
     } else {
         emit errorOccurred(errorMessage);
     }

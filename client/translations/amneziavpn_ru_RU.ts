@@ -3178,6 +3178,46 @@ Thank you for staying with us!</source>
         <source>Add imported sites to existing ones</source>
         <translation>Добавить импортированные сайты к существующим</translation>
     </message>
+    <message>
+        <location filename="../ui/qml/Pages2/PageSettingsSplitTunneling.qml" line="516"/>
+        <source>Import file type</source>
+        <translation>Тип импортируемого файла</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/Pages2/PageSettingsSplitTunneling.qml" line="551"/>
+        <source>Import JSON site list</source>
+        <translation>Импортировать список сайтов JSON</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/Pages2/PageSettingsSplitTunneling.qml" line="564"/>
+        <source>Import GeoIP (.dat)</source>
+        <translation>Импортировать GeoIP (.dat)</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/Pages2/PageSettingsSplitTunneling.qml" line="566"/>
+        <source>Open GeoIP file</source>
+        <translation>Открыть файл GeoIP</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/Pages2/PageSettingsSplitTunneling.qml" line="567"/>
+        <source>GeoIP files (*.dat)</source>
+        <translation>Файлы GeoIP (*.dat)</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/Pages2/PageSettingsSplitTunneling.qml" line="593"/>
+        <source>GeoIP codes</source>
+        <translation>Коды GeoIP</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/Pages2/PageSettingsSplitTunneling.qml" line="594"/>
+        <source>Use comma or space between codes</source>
+        <translation>Разделяйте коды запятой или пробелом</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/Pages2/PageSettingsSplitTunneling.qml" line="595"/>
+        <source>RU, CN, PRIVATE</source>
+        <translation>RU, CN, PRIVATE</translation>
+    </message>
 </context>
 <context>
     <name>PageSetupWizardApiFreeInfo</name>
@@ -5397,6 +5437,67 @@ FileZilla или другие SFTP-клиенты, а также смонтир�
         <location filename="../ui/qml/main2.qml" line="268"/>
         <source>Save</source>
         <translation>Сохранить</translation>
+    </message>
+</context>
+<context>
+    <name>IpSplitTunnelingUiController</name>
+    <message>
+        <location filename="../ui/controllers/ipSplitTunnelingUiController.cpp" line="75"/>
+        <source>GeoIP import completed: %1 routes added</source>
+        <translation>Импорт GeoIP завершён: добавлено маршрутов: %1</translation>
+    </message>
+</context>
+<context>
+    <name>GeoIpDatParser</name>
+    <message>
+        <location filename="../core/utils/geoIpDatParser.cpp" line="31"/>
+        <source>Invalid GeoIP data: zero protobuf tag</source>
+        <translation>Некорректные данные GeoIP: нулевой тег protobuf</translation>
+    </message>
+    <message>
+        <location filename="../core/utils/geoIpDatParser.cpp" line="47"/>
+        <source>Invalid GeoIP data: truncated varint</source>
+        <translation>Некорректные данные GeoIP: усечённый varint</translation>
+    </message>
+    <message>
+        <location filename="../core/utils/geoIpDatParser.cpp" line="59"/>
+        <source>Invalid GeoIP data: varint is too long</source>
+        <translation>Некорректные данные GeoIP: слишком длинный varint</translation>
+    </message>
+    <message>
+        <location filename="../core/utils/geoIpDatParser.cpp" line="70"/>
+        <source>Invalid GeoIP data: truncated length-delimited field</source>
+        <translation>Некорректные данные GeoIP: усечённое поле с длиной</translation>
+    </message>
+    <message>
+        <location filename="../core/utils/geoIpDatParser.cpp" line="95"/>
+        <source>Invalid GeoIP data: unsupported protobuf wire type %1</source>
+        <translation>Некорректные данные GeoIP: неподдерживаемый тип protobuf wire %1</translation>
+    </message>
+    <message>
+        <location filename="../core/utils/geoIpDatParser.cpp" line="104"/>
+        <source>Invalid GeoIP data: truncated fixed-width field</source>
+        <translation>Некорректные данные GeoIP: усечённое поле фиксированной длины</translation>
+    </message>
+    <message>
+        <location filename="../core/utils/geoIpDatParser.cpp" line="246"/>
+        <source>GeoIP code list is empty</source>
+        <translation>Список кодов GeoIP пуст</translation>
+    </message>
+    <message>
+        <location filename="../core/utils/geoIpDatParser.cpp" line="281"/>
+        <source>GeoIP code not found: %1</source>
+        <translation>Код GeoIP не найден: %1</translation>
+    </message>
+    <message>
+        <location filename="../core/utils/geoIpDatParser.cpp" line="291"/>
+        <source>GeoIP import contains no IPv4 CIDR ranges</source>
+        <translation>Импорт GeoIP не содержит диапазонов IPv4 CIDR</translation>
+    </message>
+    <message>
+        <location filename="../core/utils/geoIpDatParser.cpp" line="48"/>
+        <source>Invalid GeoIP data</source>
+        <translation>Некорректные данные GeoIP</translation>
     </message>
 </context>
 </TS>

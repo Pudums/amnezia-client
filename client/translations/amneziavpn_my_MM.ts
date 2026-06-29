@@ -2758,6 +2758,46 @@ Already installed containers were found on the server. All installed containers 
         <source>Add imported sites to existing ones</source>
         <translation>တင်သွင်းထားသော ဆိုက်များကို ရှိပြီးသားဆိုက်များထဲသို့ ထည့်မည်</translation>
     </message>
+    <message>
+        <location filename="../ui/qml/Pages2/PageSettingsSplitTunneling.qml" line="516"/>
+        <source>Import file type</source>
+        <translation>တင်သွင်းမည့် ဖိုင်အမျိုးအစား</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/Pages2/PageSettingsSplitTunneling.qml" line="551"/>
+        <source>Import JSON site list</source>
+        <translation>JSON ဆိုက်စာရင်းကို တင်သွင်းရန်</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/Pages2/PageSettingsSplitTunneling.qml" line="564"/>
+        <source>Import GeoIP (.dat)</source>
+        <translation>GeoIP (.dat) ကို တင်သွင်းရန်</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/Pages2/PageSettingsSplitTunneling.qml" line="566"/>
+        <source>Open GeoIP file</source>
+        <translation>GeoIP ဖိုင်ကို ဖွင့်ရန်</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/Pages2/PageSettingsSplitTunneling.qml" line="567"/>
+        <source>GeoIP files (*.dat)</source>
+        <translation>GeoIP ဖိုင်များ (*.dat)</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/Pages2/PageSettingsSplitTunneling.qml" line="593"/>
+        <source>GeoIP codes</source>
+        <translation>GeoIP ကုဒ်များ</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/Pages2/PageSettingsSplitTunneling.qml" line="594"/>
+        <source>Use comma or space between codes</source>
+        <translation>ကုဒ်များကြားတွင် ကော်မာ သို့မဟုတ် space သုံးပါ</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/Pages2/PageSettingsSplitTunneling.qml" line="595"/>
+        <source>RU, CN, PRIVATE</source>
+        <translation>RU, CN, PRIVATE</translation>
+    </message>
 </context>
 <context>
     <name>PageSetupWizardApiServiceInfo</name>
@@ -4794,6 +4834,67 @@ For more detailed information, you can
         <location filename="../ui/qml/main2.qml" line="221"/>
         <source>Save</source>
         <translation>သိမ်းဆည်းမည်</translation>
+    </message>
+</context>
+<context>
+    <name>IpSplitTunnelingUiController</name>
+    <message>
+        <location filename="../ui/controllers/ipSplitTunnelingUiController.cpp" line="75"/>
+        <source>GeoIP import completed: %1 routes added</source>
+        <translation>GeoIP တင်သွင်းမှု ပြီးဆုံးပါပြီ: route %1 ခု ထည့်ပြီးပါပြီ</translation>
+    </message>
+</context>
+<context>
+    <name>GeoIpDatParser</name>
+    <message>
+        <location filename="../core/utils/geoIpDatParser.cpp" line="31"/>
+        <source>Invalid GeoIP data: zero protobuf tag</source>
+        <translation>GeoIP ဒေတာ မမှန်ကန်ပါ: protobuf tag သုည</translation>
+    </message>
+    <message>
+        <location filename="../core/utils/geoIpDatParser.cpp" line="47"/>
+        <source>Invalid GeoIP data: truncated varint</source>
+        <translation>GeoIP ဒေတာ မမှန်ကန်ပါ: ဖြတ်တောက်ထားသော varint</translation>
+    </message>
+    <message>
+        <location filename="../core/utils/geoIpDatParser.cpp" line="59"/>
+        <source>Invalid GeoIP data: varint is too long</source>
+        <translation>GeoIP ဒေတာ မမှန်ကန်ပါ: varint ရှည်လွန်းသည်</translation>
+    </message>
+    <message>
+        <location filename="../core/utils/geoIpDatParser.cpp" line="70"/>
+        <source>Invalid GeoIP data: truncated length-delimited field</source>
+        <translation>GeoIP ဒေတာ မမှန်ကန်ပါ: length-delimited field ဖြတ်တောက်ထားသည်</translation>
+    </message>
+    <message>
+        <location filename="../core/utils/geoIpDatParser.cpp" line="95"/>
+        <source>Invalid GeoIP data: unsupported protobuf wire type %1</source>
+        <translation>GeoIP ဒေတာ မမှန်ကန်ပါ: မပံ့ပိုးသော protobuf wire type %1</translation>
+    </message>
+    <message>
+        <location filename="../core/utils/geoIpDatParser.cpp" line="104"/>
+        <source>Invalid GeoIP data: truncated fixed-width field</source>
+        <translation>GeoIP ဒေတာ မမှန်ကန်ပါ: fixed-width field ဖြတ်တောက်ထားသည်</translation>
+    </message>
+    <message>
+        <location filename="../core/utils/geoIpDatParser.cpp" line="246"/>
+        <source>GeoIP code list is empty</source>
+        <translation>GeoIP ကုဒ်စာရင်း ဗလာဖြစ်နေသည်</translation>
+    </message>
+    <message>
+        <location filename="../core/utils/geoIpDatParser.cpp" line="281"/>
+        <source>GeoIP code not found: %1</source>
+        <translation>GeoIP ကုဒ် မတွေ့ပါ: %1</translation>
+    </message>
+    <message>
+        <location filename="../core/utils/geoIpDatParser.cpp" line="291"/>
+        <source>GeoIP import contains no IPv4 CIDR ranges</source>
+        <translation>GeoIP တင်သွင်းမှုတွင် IPv4 CIDR အပိုင်းအခြားများ မပါဝင်ပါ</translation>
+    </message>
+    <message>
+        <location filename="../core/utils/geoIpDatParser.cpp" line="48"/>
+        <source>Invalid GeoIP data</source>
+        <translation>GeoIP ဒေတာ မမှန်ကန်ပါ</translation>
     </message>
 </context>
 </TS>

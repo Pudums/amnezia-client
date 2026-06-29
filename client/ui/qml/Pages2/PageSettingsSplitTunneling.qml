@@ -60,6 +60,9 @@ PageType {
         allExceptSites
     ]
 
+    property bool pendingImportReplaceExisting: false
+    property string pendingGeoIpFileName: ""
+
     QtObject {
         id: onlyForwardSites
         property string name: qsTr("Only the sites listed here will be accessed through the VPN")
@@ -458,11 +461,8 @@ PageType {
 
         readonly property string title: qsTr("Replace site list")
         readonly property var clickedHandler: function() {
-            var fileName = SystemController.getFileName(qsTr("Open sites file"),
-                                                        qsTr("Sites files (*.json)"))
-            if (fileName !== "") {
-                root.importSites(fileName, true)
-            }
+            root.pendingImportReplaceExisting = true
+            importFileTypeDrawer.openTriggered()
         }
     }
 
@@ -471,10 +471,147 @@ PageType {
 
         readonly property string title: qsTr("Add imported sites to existing ones")
         readonly property var clickedHandler: function() {
+            root.pendingImportReplaceExisting = false
+            importFileTypeDrawer.openTriggered()
+        }
+    }
+
+    DrawerType2 {
+        id: importFileTypeDrawer
+
+        anchors.fill: parent
+        expandedHeight: parent.height * 0.4375
+
+        expandedStateContent: Item {
+            implicitHeight: importFileTypeDrawer.expandedHeight
+
+            BackButtonType {
+                id: importFileTypeDrawerBackButton
+
+                anchors.top: parent.top
+                anchors.left: parent.left
+                anchors.right: parent.right
+                anchors.topMargin: 16
+
+                backButtonFunction: function() {
+                    importFileTypeDrawer.closeTriggered()
+                }
+            }
+
+            ListViewType {
+                id: importFileTypeDrawerListView
+
+                anchors.top: importFileTypeDrawerBackButton.bottom
+                anchors.left: parent.left
+                anchors.right: parent.right
+                anchors.bottom: parent.bottom
+
+                header: ColumnLayout {
+                    width: importFileTypeDrawerListView.width
+
+                    Header2Type {
+                        Layout.fillWidth: true
+                        Layout.margins: 16
+
+                        headerText: qsTr("Import file type")
+                    }
+                }
+
+                model: importFileTypeOptions
+
+                delegate: ColumnLayout {
+                    width: importFileTypeDrawerListView.width
+
+                    LabelWithButtonType {
+                        Layout.fillWidth: true
+                        Layout.leftMargin: 16
+                        Layout.rightMargin: 16
+
+                        text: title
+
+                        clickedFunction: function() {
+                            clickedHandler()
+                        }
+                    }
+
+                    DividerType {}
+                }
+            }
+        }
+    }
+
+    property list<QtObject> importFileTypeOptions: [
+        importJsonOption,
+        importGeoIpOption,
+    ]
+
+    QtObject {
+        id: importJsonOption
+
+        readonly property string title: qsTr("Import JSON site list")
+        readonly property var clickedHandler: function() {
             var fileName = SystemController.getFileName(qsTr("Open sites file"),
                                                         qsTr("Sites files (*.json)"))
             if (fileName !== "") {
-                root.importSites(fileName, false)
+                root.importSites(fileName, root.pendingImportReplaceExisting)
+            }
+        }
+    }
+
+    QtObject {
+        id: importGeoIpOption
+
+        readonly property string title: qsTr("Import GeoIP (.dat)")
+        readonly property var clickedHandler: function() {
+            var fileName = SystemController.getFileName(qsTr("Open GeoIP file"),
+                                                        qsTr("GeoIP files (*.dat)"))
+            if (fileName !== "") {
+                root.pendingGeoIpFileName = fileName
+                geoIpCodesDrawer.openTriggered()
+            }
+        }
+    }
+
+    DrawerType2 {
+        id: geoIpCodesDrawer
+
+        anchors.fill: parent
+        expandedHeight: parent.height * 0.4375
+
+        expandedStateContent: ColumnLayout {
+            anchors.top: parent.top
+            anchors.left: parent.left
+            anchors.right: parent.right
+            anchors.topMargin: 32
+            anchors.leftMargin: 16
+            anchors.rightMargin: 16
+
+            TextFieldWithHeaderType {
+                id: geoIpCodesField
+
+                Layout.fillWidth: true
+                headerText: qsTr("GeoIP codes")
+                subtitleText: qsTr("Use comma or space between codes")
+                textField.placeholderText: qsTr("RU, CN, PRIVATE")
+                checkEmptyText: true
+            }
+
+            BasicButtonType {
+                id: importGeoIpButton
+
+                Layout.fillWidth: true
+                text: qsTr("Import")
+
+                clickedFunc: function() {
+                    if (geoIpCodesField.textField.text === "") {
+                        geoIpCodesField.errorText = qsTr("The field can't be empty")
+                        return
+                    }
+
+                    root.importGeoIpSites(root.pendingGeoIpFileName,
+                                          geoIpCodesField.textField.text,
+                                          root.pendingImportReplaceExisting)
+                }
             }
         }
     }
@@ -483,6 +620,18 @@ PageType {
         PageController.showBusyIndicator(true)
         IpSplitTunnelingController.importSites(fileName, replaceExistingSites)
         PageController.showBusyIndicator(false)
+        importFileTypeDrawer.closeTriggered()
+        importSitesDrawer.closeTriggered()
+        moreActionsDrawer.closeTriggered()
+    }
+
+    function importGeoIpSites(fileName, codes, replaceExistingSites) {
+        PageController.showBusyIndicator(true)
+        IpSplitTunnelingController.importGeoIpDat(fileName, codes, replaceExistingSites)
+        PageController.showBusyIndicator(false)
+        geoIpCodesField.textField.text = ""
+        geoIpCodesDrawer.closeTriggered()
+        importFileTypeDrawer.closeTriggered()
         importSitesDrawer.closeTriggered()
         moreActionsDrawer.closeTriggered()
     }

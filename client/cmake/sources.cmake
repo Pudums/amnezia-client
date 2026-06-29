@@ -1,5 +1,9 @@
 set(CLIENT_ROOT_DIR ${CMAKE_CURRENT_LIST_DIR}/..)
 
+protobuf_generate_cpp(GEOIP_PROTO_SOURCES GEOIP_PROTO_HEADERS
+    ${CLIENT_ROOT_DIR}/core/utils/proto/routercommon/common.proto
+)
+
 set(HEADERS ${HEADERS}
     ${CLIENT_ROOT_DIR}/core/utils/migrations.h
     ${CLIENT_ROOT_DIR}/../ipc/ipc.h
@@ -65,6 +69,9 @@ set(HEADERS ${HEADERS}
     ${CLIENT_ROOT_DIR}/core/utils/utilities.h
     ${CLIENT_ROOT_DIR}/core/utils/managementServer.h
     ${CLIENT_ROOT_DIR}/core/utils/constants.h
+    ${CLIENT_ROOT_DIR}/core/utils/geoIpDatParser.h
+    ${CLIENT_ROOT_DIR}/core/utils/proto/routercommon/common.proto
+    ${GEOIP_PROTO_HEADERS}
 )
 
 # Mozilla headres
@@ -145,6 +152,8 @@ set(SOURCES ${SOURCES}
     ${CLIENT_ROOT_DIR}/core/utils/osSignalHandler.cpp
     ${CLIENT_ROOT_DIR}/core/utils/utilities.cpp
     ${CLIENT_ROOT_DIR}/core/utils/managementServer.cpp
+    ${CLIENT_ROOT_DIR}/core/utils/geoIpDatParser.cpp
+    ${GEOIP_PROTO_SOURCES}
 )
 
 # Mozilla sources
